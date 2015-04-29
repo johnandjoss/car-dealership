@@ -3,9 +3,27 @@ require('./app')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-describe('path for index to return a vehicle list', {:type => :feature}) do
-  it('shows the list of cars and shows link to "add car" form') do
+describe('path for index', {:type => :feature}) do
+  it('shows the link to list of cars and "add car" form') do
     visit('/')
-    expect(page).to have_content('Welcome to Vehicle saver')
+    expect(page).to have_content('Welcome to')
+  end
+end
+
+describe('path for all vehicles', {:type => :feature}) do
+  it('shows the list of all available ') do
+    visit('/all_vehicles')
+    expect(page).to have_content('Here are')
+  end
+end
+
+describe('path for all vehicles/new', {:type => :feature}) do
+  it('allows user to input a new vehicle ') do
+    visit('/all_vehicles/new')
+    fill_in('make', :with => 'Ford')
+    fill_in('model', :with => 'Mustang')
+    fill_in('year', :with => '1999')
+    click_button('Add Vehicle')
+    expect(page).to have_content('Success')
   end
 end

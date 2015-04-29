@@ -10,4 +10,8 @@ class Dealership
   define_method(:name) do
     @name
   end
+
+  define_method(:id) do
+    @id
+  end
 end

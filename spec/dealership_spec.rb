@@ -3,6 +3,9 @@ require('pry')
 require('dealership')
 
 describe(Dealership) do
+  before() do
+    Dealership.clear()
+  end
 
   describe('#name') do
     it("returns the name of a delearship") do
@@ -43,7 +46,7 @@ describe(Dealership) do
     it("empties the dealerships array") do
       test_dealership = Dealership.new("Bob's Cars").save()
       test_dealership.clear()
-      expect(Dealership.all()).to(eq([]))
+      expect(Dealership.clear()).to(eq([]))
     end
   end
 end

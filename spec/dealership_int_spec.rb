@@ -56,4 +56,5 @@ describe('path for index', {:type => :feature}) do
       expect(page).to have_content('Success')
     end
   end
+  
 end

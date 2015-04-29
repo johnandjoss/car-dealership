@@ -30,6 +30,27 @@ post('/all_dealers') do
   erb(:success_deal)
 end
 
+get('/all_dealers/:id') do
+  @dealership = Dealership.find(params.fetch('id').to_i())
+  erb(:dealership)
+end
+
+get('/all_dealers/:id/vehicles/new') do
+  @dealership = Dealership.find(params.fetch('id').to_i())
+  erb(:dealership_vehicle_form)
+end
+
+post('/vehicles') do
+  make = params.fetch('make')
+  model = params.fetch('model')
+  year = params.fetch('year')
+  @vehicle = Vehicle.new(make, model, year)
+  @vehicle.save()
+  @dealership = Dealership.find(params.fetch('dealership_id').to_i())
+  @dealership.add_vehicle(@vehicle)
+  erb(:success_deal)
+end
+
 get('/all_vehicles') do
   @vehicles = Vehicle.all()
   erb(:all_vehicles)
@@ -51,25 +72,4 @@ end
 get('/all_vehicles/:id') do
   @vehicle = Vehicle.find(params.fetch("id"))
   erb(:vehicle)
-end
-
-get('/all_dealers/:id') do
-  @dealership = Dealership.find(params.fetch('id').to_i())
-  erb(:dealership)
-end
-
-get('/all_dealers/:id/vehicles/new') do
-  @dealership = Dealership.find(params.fetch('id').to_i())
-  erb(:dealership_vehicle_form)
-end
-
-post('/vehicles') do
-  make = params.fetch('make')
-  model = params.fetch('model')
-  year = params.fetch('year')
-  @vehicle = Vehicle.new(make, model, year)
-  @vehicle.save()
-  @dealership = Dealership.find(params.fetch('dealership_id').to_i())
-  @dealership.add_vehicle(@vehicle)
-  erb(:success)
 end

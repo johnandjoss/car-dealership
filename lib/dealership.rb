@@ -37,7 +37,12 @@ class Dealership
       if dealership.id().eql?(id)
         found_dealership = dealership
       end
-  end
+    end
   found_dealership
   end
+
+  define_method(:add_vehicle) do |vehicle|
+    @cars.push(vehicle)
+  end
+  
  end

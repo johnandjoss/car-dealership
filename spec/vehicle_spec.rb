@@ -62,7 +62,7 @@ describe(Vehicle) do
     end
   end
 
-  describe("#find") do
+  describe(".find") do
     it("returns a vehicle by its id number") do
       test_vehicle = Vehicle.new("Mini", "Cooper", 2000)
       test_vehicle.save()

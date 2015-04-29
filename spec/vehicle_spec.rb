@@ -3,6 +3,9 @@ require("vehicle")
 
 
 describe(Vehicle) do
+  before() do
+    Vehicle.clear()
+  end
 
   describe("#make") do
     it("returns the make of a vehicle") do
@@ -34,6 +37,13 @@ describe(Vehicle) do
     end
   end
 
+  describe(".clear") do
+    it("clears the vehicles_list array") do
+      Vehicle.new("Mini", "Cooper", 1990)
+      Vehicle.clear()
+      expect(Vehicle.all()).to(eq([]))
+    end
+  end
 
 
 end

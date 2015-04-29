@@ -18,4 +18,8 @@ class Dealership
   define_method(:cars) do
     @cars
   end
+
+  define_method(:all) do
+    @@dealerships
+  end
 end

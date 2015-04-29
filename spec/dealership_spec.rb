@@ -24,4 +24,11 @@ describe(Dealership) do
       expect(test_dealership.cars()).to(eq([]))
     end
   end
+
+  describe('.all') do
+    it("returns the class variable dealerships array") do
+      test_dealership = Dealership.new("Bob's Cars")
+      expect(test_dealership.all()).to(eq([]))
+    end
+  end
 end

@@ -24,6 +24,10 @@ class Vehicle
     @@vehicles_list.push(self)
   end
 
+  define_singleton_method(:all) do
+    []
+  end
+
 
 
 end

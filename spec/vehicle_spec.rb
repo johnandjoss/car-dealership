@@ -45,5 +45,12 @@ describe(Vehicle) do
     end
   end
 
+  describe("#age") do
+    it("returns the current age of the vehicle") do
+    test_vehicle = Vehicle.new("Mini", "Cooper", 2000)
+    expect(test_vehicle.age()).to(eq(15))
+    end
+  end
+
 
 end

@@ -57,7 +57,7 @@ describe(Vehicle) do
       test_vehicle = Vehicle.new("Mini", "Cooper", 2000)
       test_vehicle.save()
       test_vehicle2 = Vehicle.new("Toyota", "Prius", 2000)
-      testvehicle2.save()
+      test_vehicle2.save()
       expect(test_vehicle.id()).to(eq(1))
     end
   end

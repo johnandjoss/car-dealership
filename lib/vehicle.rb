@@ -41,4 +41,14 @@ class Vehicle
     @id
   end
 
+  define_singleton_method(:find) do |ident|
+    found_vehicle = nil
+    @@vehicles_list.each() do |item|
+      if item.id().eql?(ident.to_i())
+        found_vehicle = item
+      end
+    end
+  found_vehicle
+  end
+
 end

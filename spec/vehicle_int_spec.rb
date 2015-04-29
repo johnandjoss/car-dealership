@@ -27,3 +27,18 @@ describe('path for all vehicles/new', {:type => :feature}) do
     expect(page).to have_content('Success')
   end
 end
+
+describe('path for all vehicles', {:type => :feature}) do
+  it('shows the list of all available ') do
+    visit('/all_vehicles/new')
+    fill_in('make', :with => 'Mini')
+    fill_in('model', :with => 'Cooper')
+    fill_in('year', :with => '1999')
+    click_button('Add Vehicle')
+    expect(page).to have_content('Success')
+    click_link('See Vehicle List')
+    expect(page).to have_content('Vehicles')
+    click_link("Cooper")
+    expect(page).to have_content('Mini')
+  end
+end

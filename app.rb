@@ -25,3 +25,8 @@ post('/all_vehicles') do
   vehicle.save()
   erb(:success)
 end
+
+get('/all_vehicles/:id') do
+  @vehicle = Vehicle.find(params.fetch("id"))
+  erb(:vehicle)
+end

@@ -27,8 +27,7 @@ describe(Dealership) do
 
   describe('.all') do
     it("returns the class variable dealerships array") do
-      test_dealership = Dealership.new("Bob's Cars")
-      expect(test_dealership.all()).to(eq([]))
+      expect(Dealership.all()).to(eq([]))
     end
   end
 
@@ -36,7 +35,15 @@ describe(Dealership) do
     it("saves a dealership into the dealerships array") do
       test_dealership = Dealership.new("Bob's Cars")
       test_dealership.save()
-      expect(test_dealership.all()).to(eq([test_dealership]))
+      expect(Dealership.all()).to(eq([test_dealership]))
+    end
+  end
+
+  describe('.clear') do
+    it("empties the dealerships array") do
+      test_dealership = Dealership.new("Bob's Cars").save()
+      test_dealership.clear()
+      expect(Dealership.all()).to(eq([]))
     end
   end
 end
